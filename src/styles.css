@@ -1,1 +1,75 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==========================================
+   GLOBAL STYLES
+========================================== */
+
+html,
+body {
+
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    scroll-behavior: smooth;
+
+}
+
+body {
+
+    background: #0B1120;
+
+    color: #ffffff;
+
+    font-family: 'Outfit', sans-serif;
+
+}
+
+/* ==========================================
+   ROOT
+========================================== */
+
+app-root {
+
+    display: block;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+::-webkit-scrollbar-track {
+
+    background: #0B1120;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #7C3AED;
+
+    border-radius: 20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #A855F7;
+
+}

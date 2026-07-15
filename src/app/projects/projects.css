@@ -1,0 +1,963 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:host {
+    display: block;
+    width: 100%;
+}
+
+.projects-page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    overflow-x: hidden;
+
+    padding-bottom: 25px;
+
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+
+    background:
+        radial-gradient(circle at 5% 75%,
+            rgba(112, 54, 255, 0.28),
+            transparent 30%),
+        radial-gradient(circle at 95% 85%,
+            rgba(168, 85, 247, 0.18),
+            transparent 30%),
+        #080d21;
+}
+
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+.project-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+
+    animation: glowMove 8s ease-in-out infinite;
+}
+
+.glow-left {
+    width: 350px;
+    height: 350px;
+    left: -180px;
+    top: 350px;
+
+    background: rgba(112, 55, 255, 0.3);
+}
+
+.glow-right {
+    width: 300px;
+    height: 300px;
+    right: -150px;
+    bottom: 0;
+
+    background: rgba(175, 70, 255, 0.2);
+
+    animation-delay: 2s;
+}
+
+
+/* =========================
+   FLOATING DOTS
+========================= */
+
+.floating-dot {
+    position: absolute;
+    z-index: 1;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+    background: #a855f7;
+
+    box-shadow:
+        0 0 10px #a855f7,
+        0 0 20px rgba(168, 85, 247, 0.8);
+
+    animation: dotFloat 5s ease-in-out infinite;
+}
+
+.dot-one {
+    top: 170px;
+    left: 7%;
+}
+
+.dot-two {
+    top: 400px;
+    right: 6%;
+    animation-delay: 1.5s;
+}
+
+.dot-three {
+    bottom: 60px;
+    left: 48%;
+    animation-delay: 3s;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: relative;
+    z-index: 10;
+
+    width: 100%;
+    max-width: 1200px;
+    min-height: 105px;
+
+    margin: 0 auto;
+    padding: 18px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    position: relative;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: translateY(-3px);
+}
+
+.logo-line {
+    position: absolute;
+
+    left: 0;
+    bottom: -14px;
+
+    width: 55px;
+    height: 4px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(90deg,
+            #8b45ff,
+            #c46cff);
+
+    box-shadow:
+        0 0 10px rgba(168, 80, 255, 0.8),
+        0 0 20px rgba(168, 80, 255, 0.4);
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: #aaa8ba;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #ffffff;
+}
+
+.nav-links a:hover {
+    transform: translateY(-3px);
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -12px;
+
+    width: 0;
+    height: 2px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(90deg,
+            #8c45ff,
+            #d16cff);
+
+    box-shadow: 0 0 10px #a855f7;
+
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 38px;
+}
+
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.menu-btn {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    cursor: pointer;
+}
+
+.menu-btn span {
+    display: block;
+
+    width: 20px;
+    height: 2px;
+
+    margin: 5px auto;
+
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.projects-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1160px;
+
+    margin: 10px auto 0;
+    padding: 0 25px 15px;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.projects-heading {
+    max-width: 850px;
+
+    margin: 0 auto 35px;
+
+    text-align: center;
+
+    animation: headingEntrance 1s ease both;
+}
+
+
+/* =========================
+   SECTION TAG
+========================= */
+
+.section-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-bottom: 14px;
+
+    color: #c172ff;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.tag-line {
+    width: 30px;
+    height: 2px;
+
+    background: linear-gradient(90deg,
+            #7c3cff,
+            #d16cff);
+
+    box-shadow: 0 0 10px #a855f7;
+}
+
+.floating-tag {
+    animation: tagFloat 3s ease-in-out infinite;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.projects-title {
+    margin-bottom: 15px;
+
+    color: #ffffff;
+
+    font-size: clamp(45px, 4.5vw, 58px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -3px;
+}
+
+.projects-title span {
+    background: linear-gradient(90deg,
+            #984bff,
+            #d16cff);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.floating-title {
+    animation: titleFloat 4.5s ease-in-out infinite;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.projects-description {
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    color: #aaa9bd;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    animation: descriptionFloat 5s ease-in-out infinite;
+}
+
+
+/* =========================
+   PROJECT GRID
+========================= */
+
+.projects-grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================
+   PROJECT CARD
+========================= */
+
+.project-card {
+    position: relative;
+
+    min-height: 265px;
+
+    padding: 25px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 20px;
+
+    background: linear-gradient(135deg,
+            rgba(49, 40, 91, 0.82),
+            rgba(20, 25, 57, 0.95));
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.2);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+
+    animation: cardFloat 5s ease-in-out infinite;
+}
+
+.project-two {
+    animation-delay: 1.5s;
+}
+
+
+/* CARD GLOW */
+
+.project-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    top: -90px;
+    right: -80px;
+
+    border-radius: 50%;
+
+    background: rgba(168, 85, 247, 0.18);
+
+    filter: blur(40px);
+
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-9px);
+
+    border-color: rgba(190, 90, 255, 0.7);
+
+    box-shadow:
+        0 22px 45px rgba(117, 52, 255, 0.25);
+}
+
+.project-card:hover::before {
+    transform: scale(1.8);
+}
+
+
+/* =========================
+   PROJECT NUMBER
+========================= */
+
+.project-number {
+    position: absolute;
+
+    top: 12px;
+    right: 25px;
+
+    color: rgba(255, 255, 255, 0.06);
+
+    font-size: 65px;
+    font-weight: 800;
+    line-height: 1;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   PROJECT TOP
+========================= */
+
+.project-top {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+
+/* =========================
+   PROJECT ICON
+========================= */
+
+.project-icon {
+    flex-shrink: 0;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    background: linear-gradient(135deg,
+            #8845ff,
+            #c34cff);
+
+    box-shadow:
+        0 10px 25px rgba(139, 69, 255, 0.3);
+
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-icon {
+    transform:
+        rotate(-6deg) scale(1.08);
+}
+
+
+/* =========================
+   PROJECT INFO
+========================= */
+
+.project-info {
+    position: relative;
+    z-index: 2;
+
+    flex: 1;
+}
+
+.project-type {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #c078ff;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.project-info h2 {
+    margin-bottom: 10px;
+
+    color: #ffffff;
+
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.project-info p {
+    max-width: 100%;
+
+    color: #aaa9bd;
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   TECHNOLOGIES
+========================= */
+
+.project-tech {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 18px;
+    margin-left: 78px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.project-tech span {
+    padding: 6px 12px;
+
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    border-radius: 20px;
+
+    color: #c9b8e8;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    background: rgba(168, 85, 247, 0.08);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.project-tech span:hover {
+    transform: translateY(-3px);
+
+    background: rgba(168, 85, 247, 0.2);
+}
+
+
+/* =========================
+   PROJECT BUTTONS
+========================= */
+
+.project-actions {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 18px;
+    margin-left: 78px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.project-actions a {
+    text-decoration: none;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.view-btn {
+    padding: 11px 16px;
+
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    background: linear-gradient(90deg,
+            #8743ff,
+            #c347ff);
+
+    box-shadow:
+        0 8px 20px rgba(147, 51, 234, 0.25);
+}
+
+.view-btn span {
+    margin-left: 5px;
+}
+
+.view-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(168, 85, 247, 0.4);
+}
+
+.github-btn {
+    padding: 10px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 9px;
+
+    color: #c7c4d5;
+
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.github-btn:hover {
+    transform: translateY(-3px);
+
+    color: #ffffff;
+
+    border-color: rgba(168, 85, 247, 0.5);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.projects-footer {
+    position: relative;
+    z-index: 2;
+
+    padding: 18px 20px 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: #8f8da3;
+
+    font-size: 11px;
+}
+
+.footer-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #a855f7;
+
+    box-shadow:
+        0 0 8px #a855f7,
+        0 0 16px rgba(168, 85, 247, 0.6);
+
+    animation: footerPulse 1.8s ease-in-out infinite;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes glowMove {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(35px, -25px);
+    }
+}
+
+@keyframes dotFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateY(-30px) scale(1.4);
+        opacity: 1;
+    }
+}
+
+@keyframes tagFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes titleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes descriptionFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes cardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes headingEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes footerPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+}
+
+
+/* =========================
+   SMALL LAPTOP
+========================= */
+
+@media (max-width: 1100px) {
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .projects-content {
+        max-width: 950px;
+    }
+
+    .project-card {
+        padding: 22px;
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        min-height: 90px;
+        padding: 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-content {
+        margin-top: 25px;
+        padding: 0 20px 25px;
+    }
+
+    .project-card {
+        min-height: auto;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 550px) {
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .projects-heading {
+        margin-bottom: 30px;
+    }
+
+    .projects-title {
+        font-size: 40px;
+        letter-spacing: -2px;
+    }
+
+    .projects-description {
+        font-size: 13px;
+    }
+
+    .project-card {
+        padding: 20px 17px;
+    }
+
+    .project-top {
+        gap: 14px;
+    }
+
+    .project-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .project-info h2 {
+        font-size: 18px;
+    }
+
+    .project-tech,
+    .project-actions {
+        margin-left: 0;
+    }
+
+    .project-number {
+        font-size: 50px;
+    }
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .project-glow,
+    .floating-dot,
+    .floating-tag,
+    .floating-title,
+    .projects-description,
+    .project-card,
+    .footer-dot {
+        animation: none;
+    }
+}
