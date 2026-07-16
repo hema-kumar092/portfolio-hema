@@ -20,15 +20,7 @@
     overflow-x: hidden;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
-
-    background:
-        radial-gradient(circle at 10% 45%,
-            rgba(112, 54, 255, 0.22),
-            transparent 30%),
-        radial-gradient(circle at 92% 80%,
-            rgba(151, 55, 255, 0.18),
-            transparent 30%),
-        #080d21;
+    background: transparent;
 
     padding-bottom: 35px;
 }

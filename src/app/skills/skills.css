@@ -17,28 +17,17 @@
     position: relative;
     width: 100%;
 
-    /* IMPORTANT - bottom content cut ஆகாது */
-    min-height: 100vh;
-    height: auto;
+    min-height: auto;
 
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow: hidden;
 
-    padding-bottom: 40px;
+    padding: 80px 8%;
 
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
 
-    background:
-        radial-gradient(circle at 5% 55%,
-            rgba(112, 54, 255, 0.25),
-            transparent 30%),
-        radial-gradient(circle at 95% 85%,
-            rgba(147, 51, 234, 0.18),
-            transparent 30%),
-        #080d21;
+    background: transparent;
 }
-
 
 /* =========================
    BACKGROUND GLOW
@@ -59,7 +48,7 @@
     height: 350px;
 
     left: -180px;
-    top: 300px;
+    top: 120px;
 
     background: rgba(112, 55, 255, 0.35);
 }
@@ -69,7 +58,7 @@
     height: 300px;
 
     right: -150px;
-    bottom: 50px;
+    bottom: 120px;
 
     background: rgba(175, 70, 255, 0.22);
 

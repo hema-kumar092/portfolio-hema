@@ -16,21 +16,17 @@
 .experience-page {
     position: relative;
     width: 100%;
-    min-height: 100vh;
-    overflow-x: hidden;
-    padding-bottom: 15px;
+
+    min-height: auto;
+
+    overflow: hidden;
+
+    padding: 80px 8%;
 
     font-family: 'Poppins', sans-serif;
     color: #ffffff;
 
-    background:
-        radial-gradient(circle at 5% 80%,
-            rgba(112, 54, 255, 0.28),
-            transparent 30%),
-        radial-gradient(circle at 95% 85%,
-            rgba(168, 85, 247, 0.16),
-            transparent 30%),
-        #080d21;
+    background: transparent;
 }
 
 
@@ -51,7 +47,7 @@
     width: 350px;
     height: 350px;
     left: -180px;
-    top: 350px;
+    top: 120px;
     background: rgba(112, 55, 255, 0.28);
 }
 
@@ -59,7 +55,7 @@
     width: 300px;
     height: 300px;
     right: -150px;
-    bottom: -50px;
+    bottom: 120px;
     background: rgba(175, 70, 255, 0.2);
     animation-delay: 2s;
 }

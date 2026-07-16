@@ -6,12 +6,12 @@
 
 <div class="grid-overlay"></div>
 
-
 <!-- ================= HEADER ================= -->
 
 <header class="header">
 
-    <a routerLink="/" class="logo">
+    <!-- Logo -->
+    <a href="#home" class="logo">
         Portfolio
     </a>
 
@@ -38,24 +38,23 @@
         <!-- Navigation -->
         <nav class="navbar">
 
-            <a routerLink="/" class="active">Home</a>
+            <a href="#home" class="active">Home</a>
 
-            <a routerLink="/about">About</a>
+            <a href="#about">About</a>
 
-            <a routerLink="/skills">Skills</a>
+            <a href="#skills">Skills</a>
 
-            <a routerLink="/projects">Projects</a>
+            <a href="#projects">Projects</a>
 
-            <a routerLink="/experience">Experience</a>
+            <a href="#experience">Experience</a>
 
-            <a routerLink="/contact">Contact</a>
+            <a href="#contact">Contact</a>
 
         </nav>
 
     </div>
 
 </header>
-
 
 <!-- ================= HERO SECTION ================= -->
 
@@ -89,17 +88,38 @@
             <!-- Buttons -->
             <div class="hero-buttons">
 
-                <a routerLink="/projects" class="primary-btn">
+                <a href="#projects" class="primary-btn">
                     View Projects
                 </a>
 
-                <a routerLink="/contact" class="secondary-btn">
+                <a href="#contact" class="secondary-btn">
                     Contact Me
                 </a>
 
             </div>
+
         </div>
 
     </div>
 
 </section>
+
+<!-- ================= ABOUT ================= -->
+
+<app-about></app-about>
+
+<!-- ================= SKILLS ================= -->
+
+<app-skills></app-skills>
+
+<!-- ================= PROJECTS ================= -->
+
+<app-projects></app-projects>
+
+<!-- ================= EXPERIENCE ================= -->
+
+<app-experience></app-experience>
+
+<!-- ================= CONTACT ================= -->
+
+<app-contact></app-contact>
