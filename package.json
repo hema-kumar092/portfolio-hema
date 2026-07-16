@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.0.0",
-  "scripts": {
+ "scripts": {
   "ng": "ng",
   "start": "ng serve",
   "build": "ng build",
@@ -10,7 +10,7 @@
 
   "build:prod": "ng build --configuration production --base-href \"/portfolio-hema/\"",
 
-  "deploy": "npm run build:prod && npx angular-cli-ghpages --dir=dist/portfolio"
+  "deploy": "npm run build:prod && npx angular-cli-ghpages --dir=dist/portfolio/browser"
 },
   "private": true,
   "packageManager": "npm@11.13.0",
